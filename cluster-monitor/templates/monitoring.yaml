@@ -1,0 +1,46 @@
+
+{{- if .Values.monitoring.enabled -}}
+
+
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: {{ include "clusterMonitor.fullname" . }}
+  namespace: te
+spec:
+  namespaceSelector:
+    matchNames:
+      - te
+  podMetricsEndpoints:
+    - path: /metrics
+      port: http
+      scheme: http
+      scrapeTimeout: 30s
+      honorLabels: true
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cluster-monitor  # Match all replicas in the StatefulSet
+
+
+{{- end }}
+
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: cm-cluster-monitor
+  namespace: te
+spec:
+  namespaceSelector:
+    matchNames:
+      - te
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cluster-monitor  # Matches the Service
+  endpoints:
+    - path: /metrics  # Adjust based on your app
+      port: http
+      scheme: http
+      scrapeTimeout: 30s
+      honorLabels: true
