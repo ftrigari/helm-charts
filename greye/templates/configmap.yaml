@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "clusterMonitor.fullname" . }}
+  name: {{ include "greye.fullname" . }}
   labels:
-    {{- include "clusterMonitor.labels" . | nindent 4 }}
+    {{- include "greye.labels" . | nindent 4 }}
 data:
   config.json: |
     {
@@ -11,8 +11,8 @@ data:
       "server": {
         "logLevel": "error",
         "port": {{ .Values.service.port }},
-        "applicationName": "{{ include "clusterMonitor.fullname" . }}",
-        "serviceHAName": "{{ include "clusterMonitor.fullname" . }}",
+        "applicationName": "{{ include "greye.fullname" . }}",
+        "serviceHAName": "{{ include "greye.fullname" . }}",
         "numberClusterMonitor": {{ .Values.replicaCount }}
       },
       "notification": {

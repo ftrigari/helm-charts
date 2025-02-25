@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "clusterMonitor.fullname" . }}
+  name: {{ include "greye.fullname" . }}
   labels:
-    {{- include "clusterMonitor.labels" . | nindent 4 }}
+    {{- include "greye.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "clusterMonitor.fullname" . }}
+    name: {{ include "greye.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

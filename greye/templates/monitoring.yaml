@@ -5,7 +5,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: {{ include "clusterMonitor.fullname" . }}
+  name: {{ include "greye.fullname" . }}
   namespace: te
 spec:
   namespaceSelector:
