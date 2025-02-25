@@ -4,7 +4,7 @@
 
 replicaCount: 3
 image:
-  repository: "ftrigari/greye:latest"
+  repository: "ftrigari/greye"
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
