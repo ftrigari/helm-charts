@@ -49,3 +49,10 @@ spec:
 {{/*            {{- toYaml .Values.readinessProbe | nindent 12 }}*/}}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ include "greye.fullname" . }}
