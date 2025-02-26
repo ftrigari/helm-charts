@@ -3,12 +3,12 @@ entries:
   greye:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-02-25T19:36:44.547705587+01:00"
+    created: "2025-02-26T01:02:41.57088472+01:00"
     description: A Helm chart for Kubernetes
-    digest: 01d3191cd02a0a00dbe8a3d3ffe261530bf7882385b28f4d82b0c97d61781067
+    digest: 2ff3b0d53845c66f1783e62cfbd87665440e1810d9bab58ab086c1101ea56200
     name: greye
     type: application
     urls:
     - https://ftrigari.github.io/helm-charts/greye-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-25T19:36:44.547241062+01:00"
+generated: "2025-02-26T01:02:41.570203313+01:00"
